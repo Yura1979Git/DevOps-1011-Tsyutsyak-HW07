@@ -1,8 +1,9 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      network: host
     container_name: web
-    network_mode: "host"
     ports:
       - "5000:5000"
     networks:
