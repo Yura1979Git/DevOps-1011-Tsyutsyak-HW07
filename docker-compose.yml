@@ -1,5 +1,7 @@
 services:
   web:
+    depends_on:
+      - redis
     build:
       context: .
       network: host
@@ -18,6 +20,11 @@ services:
       - backend
     volumes:
       - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-h", "localhost", "-p", "6379", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
 networks:
   frontend:
     name: frontend
