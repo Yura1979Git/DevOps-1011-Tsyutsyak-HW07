@@ -11,6 +11,12 @@ services:
     networks:
       - frontend
       - backend
+    healthcheck:
+      test: ["CMD", "curl", "localhost:5000/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   redis:
     image: redis
     container_name: redis
@@ -24,7 +30,7 @@ services:
       test: ["CMD", "redis-cli", "-h", "localhost", "-p", "6379", "ping"]
       interval: 5s
       timeout: 5s
-      retries: 20
+      retries: 5
 networks:
   frontend:
     name: frontend

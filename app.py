@@ -10,5 +10,9 @@ def hello():
     counter = str(redis.get('hits'), 'utf-8')
     return "Welcome to our Flask app with Redis!, This web page was withites " + counter + " times"
 
+@app.route('/health')
+def health():
+    return "Health ok!"
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug = True)

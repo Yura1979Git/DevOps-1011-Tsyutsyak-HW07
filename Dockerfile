@@ -1,6 +1,6 @@
 FROM python:3.8-alpine3.16
 
-RUN adduser --disabled-password webapp
+RUN adduser --disabled-password webapp && pkg add --no-cache curl 
 USER webapp
 
 WORKDIR /app
