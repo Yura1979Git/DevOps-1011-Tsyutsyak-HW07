@@ -25,3 +25,4 @@ networks:
     name: backend
 volumes:
   redis_data:
+    name: redis_data
