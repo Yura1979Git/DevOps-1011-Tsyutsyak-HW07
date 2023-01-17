@@ -5,6 +5,9 @@ services:
     build:
       context: .
       network: host
+      args:
+        - APP_VERSSION=1.0.0
+        - BUILD_NUMBER=123
     image: tyi/webapp
     container_name: web
     environment:
