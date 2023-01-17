@@ -8,7 +8,7 @@ services:
     image: tyi/webapp
     container_name: web
     environment:
-      - USER="Yutiy"
+      - USER=Yuriy
     ports:
       - "5000:5000"
     networks:
