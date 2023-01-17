@@ -2,6 +2,8 @@ FROM python:3.8-alpine3.16
 
 RUN adduser --disabled-password webapp && apk --no-cache add curl
 
+ENV USER="${USER}"
+
 LABEL tyi.app.version="${APP_VERSSION}" \
       tyi.app.build="${BUILD_NUMBER}" \
       tyi.app.vendor="TYI" \

@@ -7,6 +7,8 @@ services:
       network: host
     image: tyi/webapp
     container_name: web
+    environment:
+      - USER="Yutiy"
     ports:
       - "5000:5000"
     networks:
