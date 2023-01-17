@@ -21,8 +21,9 @@ services:
     healthcheck:
       test: ["CMD", "curl", "localhost:5000/health"]
       interval: 5s
-      timeout: 10s
+      timeout: 5s
       retries: 5
+
 
   redis:
     image: redis
@@ -34,9 +35,9 @@ services:
     volumes:
       - redis_data:/data
     healthcheck:
-      test: ["CMD", "redis-cli", "-h", "localhost", "-p", "6379", "ping"]
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
       interval: 5s
-      timeout: 30s
+      timeout: 5s
       retries: 5
 networks:
   frontend:
