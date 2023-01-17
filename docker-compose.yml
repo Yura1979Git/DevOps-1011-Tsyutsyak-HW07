@@ -5,6 +5,7 @@ services:
     build:
       context: .
       network: host
+    image: tyi/webapp
     container_name: web
     ports:
       - "5000:5000"
