@@ -10,7 +10,7 @@ def hello():
     USER = os.getenv('USER')
     redis.incr('hits')
     counter = str(redis.get('hits'), 'utf-8')
-    return "Hello" + USER + "\n" + "Welcome to our Flask app with Redis!, This web page was withites " + counter + " times.\n"
+    return "Hello " + USER + "\n" + "Welcome to our Flask app with Redis!, This web page was withites " + counter + " times.\n"
 
 @app.route('/health')
 def health():
