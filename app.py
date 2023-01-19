@@ -1,6 +1,7 @@
 from flask import Flask
 from redis import Redis
 import os
+import socket
 
 app = Flask(__name__)
 redis = Redis(host=os.getenv('REDIS_HOST'), port=os.getenv('REDIS_PORT'))
@@ -10,7 +11,9 @@ def hello():
     USER = os.getenv('USER')
     redis.incr('hits')
     counter = str(redis.get('hits'), 'utf-8')
-    return "Hello " + USER + "\n" + "Welcome to our Flask app with Redis!, This web page was withites " + counter + " times.\n"
+    hostname = socket.gethostname
+    ip_addr = socket.gethostbyname(hostname)
+    return "Hello " + USER + "\n" + "Welcome to our Flask app with Redis!, This web page was withites " + counter + " times.\n On host " + hostname + "with ip: " + ip_addr + "\n"
 
 @app.route('/health')
 def health():
