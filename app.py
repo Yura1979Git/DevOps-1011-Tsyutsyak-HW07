@@ -13,7 +13,7 @@ def hello():
     counter = str(redis.get('hits'), 'utf-8')
     hostname = socket.gethostname()
     ip_addr = socket.gethostbyname(hostname)
-    return "Hello " + USER + "\n" + "Welcome to our Flask app with Redis!, This web page was withites " + counter + " times.\n On host " + hostname + "with ip: " + ip_addr + "\n"
+    return "Hello " + USER + "\n" + "Welcome to our Flask app with Redis!, This web page was withites " + counter + " times.\n On host " + hostname + " with ip: " + ip_addr + "\n"
 
 @app.route('/health')
 def health():
