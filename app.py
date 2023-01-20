@@ -11,6 +11,7 @@ redis = Redis(host=os.getenv('REDIS_HOST'), port=os.getenv('REDIS_PORT'))
 def hello():
     USER = os.getenv('USER')
     redis.incr('hits')
+    redis.save()
     counter = str(redis.get('hits'), 'utf-8')
     hostname = socket.gethostname()
     ip_addr = socket.gethostbyname(hostname)
