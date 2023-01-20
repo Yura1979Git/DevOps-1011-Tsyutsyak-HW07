@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   web:
+    hostname: web
     depends_on:
       redis:
         condition: service_healthy
