@@ -16,7 +16,7 @@ def hello():
     ip_addr = socket.gethostbyname(hostname)
     utc_dt=datetime.datetime.utcnow()
     # return "Hello " + USER + "\n" + "Welcome to our Flask app with Redis!, This web page was withites " + counter + " times.\n On host " + hostname + " with ip: " + ip_addr + "\n"
-    return render_template('index.html', utc_dt, counter, hostname, ip_addr)
+    return render_template('index.html', utc_dt = utc_dt, counter = counter, hostname = hostname, ip_addr = ip_addr)
 
 @app.route('/health')
 def health():
