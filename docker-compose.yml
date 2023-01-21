@@ -49,6 +49,7 @@ networks:
     name: frontend
   backend:
     name: backend
+    internal: true
 volumes:
   redis_data:
     name: redis_data
